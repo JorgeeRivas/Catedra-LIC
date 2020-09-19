@@ -1,6 +1,19 @@
 
 function iniciar() {
 
+    //Codigo para imprimir los datos guardados en LocalStorage
+    var guardado = localStorage.getItem('datosUsuario');
+
+    var guardado = JSON.parse(guardado);
+
+    var nombre = document.getElementsByClassName('imprNombre');
+
+    for(var i = 0; i < 2; i++){
+        nombre[i].innerHTML = guardado.nombre;
+    }
+    
+    document.getElementById('imprEmail').innerHTML = guardado.email;
+
     var submit = document.getElementById('submit');
 
     cargarGastosLocalStorage();
