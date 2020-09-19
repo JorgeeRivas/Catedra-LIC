@@ -10,7 +10,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Ingresos</title>
+    <title>Cuenta</title>
 
     <!-- Fontfaces CSS-->
     <link href="../css/font-face.css" rel="stylesheet" media="all">
@@ -53,7 +53,7 @@
                            
                         </li>
                         <li>
-                            <a href="cuentas.html">
+                            <a href="#">
                                 <i class="fas fa-chart-bar"></i>Cuentas</a>
                         </li>
                         <li>
@@ -100,7 +100,7 @@
                                             <img src="../images/icon/avatar-01.jpg" alt="John Doe" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">Jorge Rivas</a>
+                                            <a class="js-acc-btn" href="#">Jose Rivera</a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
@@ -111,9 +111,9 @@
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#">Jorge Rivas</a>
+                                                        <a href="#">Jose Rivera</a>
                                                     </h5>
-                                                    <span class="email">jorgeantoniorivasmendez@gmail.com</span>
+                                                    <span class="email">joseemariaariveraa@gmail.com</span>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__body">
@@ -145,53 +145,65 @@
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="row m-t-30">
-                            <div class="col-md-12">
+                            <div class="col-md-12"
+                            
+                            >
 
-                                <div class="card">
-                                    <div class="card-header">
-                                        <strong>Ingresos</strong> 
-                                    </div>
-                                    <div class="card-body card-block">
-                                        <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="select" class=" form-control-label">Fecha:</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="text" name="banco" class="form-control" placeholder="Año-Dia-Mes">
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="select" class=" form-control-label">Motivo:</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="text" name="banco" class="form-control" placeholder="">
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="select" class=" form-control-label">Monto:</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="text" name="NumCuenta" class="form-control" placeholder="$0.00">
-                                                </div>
-                                            </div>
+                            <div class="form-group">
+                                <label>Efectivo actual</label>
+                                <input class="au-input au-input--full" type="text" name="Efectivo" placeholder="$: 0.00">
+                            </div> 
+                                            
+                      
 
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="select" class=" form-control-label">Almacenado en:</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <select name="select" id="select"class="form-control">
-                                                
-                                                        <option value="1">Cuenta bancaria</option>
-                                                        <option value="2">Efectivo</option>
-                                                        
-                                                    </select>
-                                                </div>
-                                            </div>
-                                           
+
+
+                            <div class="form-group">
+                                <div class="card-header">
+                                    <strong>Agregar cuenta</strong> <br>
+                                </div>
+                                <label>Banco</label>
+                                <input class="au-input au-input--full" type="text"  name="Banco" placeholder="Banco Agricola">
+                                <label># de cuenta</label>
+                                <input class="au-input au-input--full" type="text"  name="Num_Cuenta" placeholder="####-####-######-##">
+                                <label>Saldo actual</label>
+                                <input class="au-input au-input--full" type="text"  name="Saldoact" placeholder="$: 0.00">
+                            </div> 
+
+
+
+
+                            <div class="form-group">
+                                <div class="card-header">
+                                    <strong>Tarjeta de credito</strong>
+                                </div><br>
+                                <label>Tarjeta que poseo:</label>
+                              
+                                <input class="au-input au-input--full" type="text" disabled=""  name="Num_Cuenta" placeholder="3021-4331-3231-1">
+                                <input class="au-input au-input--full" type="text" disabled=""  name="Num_Cuenta" placeholder="5070-4320-0321-7">
+                        
+                            </div> 
+
+
+                            <div class="form-group">
+                                <div class="card-header">
+                                    <strong>Agregar nueva tarjeta:</strong>
+                                </div><br>
+                              
+                                <label>Banco</label>
+                                <input class="au-input au-input--full" type="text"  name="Banco" placeholder="Banco Agricola">
+                                <label># de tarjeta</label>
+                                <input class="au-input au-input--full" type="text"  name="Num_Cuenta" placeholder="####-####-######-##">
+                                <label>Saldo actual</label>
+                                <input class="au-input au-input--full" type="text"  name="Saldoact" placeholder="$: 40.00">
+                                <label>Interes anual</label>
+                                <input class="au-input au-input--full" type="number"  name="Saldoact" placeholder=" 1">
+                                <label>Día de pago de tarjeta</label>
+                                <input class="au-input au-input--full" type="number"  name="Saldoact" >
+                            </div> 
+                           
+                            
+
                                             
                                     <div class="card-footer">
                                         <button type="submit" class="btn btn-primary btn-sm">
@@ -204,45 +216,8 @@
 
 
 
-                                <!-- DATA TABLE-->
-                                <div class="table-responsive m-b-40">
-                                    <table class="table table-borderless table-data3">
-                                        <thead>
-                                            <tr>
-                                                <th>Fecha</th>
-                                                <th>Motivo</th>
-                                                <th>Cuenta</th>
-                                                <th>Monto</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>2018-09-29</td>
-                                                <td>Pago quincenal empresa</td>
-                                                <td>Cuenta de ahorro</td>
-                                                <td>$500.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2018-09-28</td>
-                                                <td>Pago quincenal empresa</td>
-                                                <td>Cuenta de ahorro</td>
-                                                <td>$500.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2018-09-28</td>
-                                                <td>Pago en PayPal</td>
-                                                <td>Cuenta de ahorro</td>
-                                                <td>$756.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2018-09-28</td>
-                                                <td>Venta de telefono</td>
-                                                <td>Efectivo</td>
-                                                <td>$100.00</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+                            
+
                                 <!-- END DATA TABLE-->
                             </div>
                         </div>
