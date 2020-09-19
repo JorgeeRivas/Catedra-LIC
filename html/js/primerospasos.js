@@ -51,8 +51,6 @@ function iniciar() {
 
 }
 
-
-
 class Cuenta {
     
     constructor(banco, NumCuenta, SaldoActual){

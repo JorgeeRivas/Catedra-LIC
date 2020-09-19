@@ -34,6 +34,7 @@
     <link href="../css/theme.css" rel="stylesheet" media="all">
 
     <script src="js/primerospasos.js"></script>
+    <script src="js/validaciones_primerospasos.js"></script>
 
 </head>
 
@@ -83,8 +84,7 @@
                 </nav>
             </div>
         </aside>
-        <!-- END MENU SIDEBAR-->
-        <!-- END MENU SIDEBAR-->
+      
 
         <!-- PAGE CONTAINER-->
         <div class="page-container">
@@ -168,7 +168,7 @@
                                                     <label class=" form-control-label">Usuario</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <p class="form-control-static">Walter Mejía </p>
+                                                    <p class="form-control-static">Walter Mejía</p>
                                                 </div>
                                             </div>
                                         
@@ -190,6 +190,7 @@
                                                 </div>
                                                 <div class="col-12 col-md-9">
                                                     <input type="text" id="dinero" class="form-control" placeholder="Dinero">
+                                                    <p class="rojo" id="msgDinero"></p>
                                                 </div>
                                             </div>
                                            
@@ -232,6 +233,7 @@
                                             </div>
                                             <div class="col-12 col-md-9">
                                                 <input type="text" id="banco" class="form-control" placeholder="Banco">
+                                                <p class="rojo" id="msgBanco"></p>
                                             </div>
                                         </div>
 
@@ -241,6 +243,7 @@
                                             </div>
                                             <div class="col-12 col-md-9">
                                                 <input type="text" id="NumCuenta" class="form-control" placeholder="# Cuenta">
+                                                <p class="rojo" id="msgCuenta"></p>
                                             </div>
                                         </div>
 
@@ -250,6 +253,7 @@
                                             </div>
                                             <div class="col-12 col-md-9">
                                                 <input type="text" id="SaldoActual" class="form-control" placeholder="$00.00">
+                                                <p class="rojo" id="msgSaldoAc"></p>
                                             </div>
                                         </div>
                                        

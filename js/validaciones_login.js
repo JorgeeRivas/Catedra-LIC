@@ -47,8 +47,6 @@ function addEventHandler(elem, eventType, handler) {
 }
 
 
-
-
 if(window.addEventListener){
     window.addEventListener('load', init, false);
 }else if(window.attachEvent){

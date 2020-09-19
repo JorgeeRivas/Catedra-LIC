@@ -33,6 +33,8 @@
     <!-- Main CSS-->
     <link href="../css/theme.css" rel="stylesheet" media="all">
 
+    <script src="./js/validaciones_cuentas.js"></script>
+
 </head>
 
 <body class="animsition">
@@ -178,7 +180,8 @@
                                                 <label for="select" class=" form-control-label">Banco:</label>
                                             </div>
                                             <div class="col-12 col-md-9">
-                                                <input type="text" id="motivo" class="form-control" placeholder="Escriba el nombre de su banco...">
+                                                <input type="text" id="cuenta" class="form-control" placeholder="Escriba el nombre de su banco...">
+                                                <p class="rojo" id="msgCuenta"></p>
                                             </div>
                                         </div>
                                         <div class="row form-group">
@@ -186,7 +189,8 @@
                                                 <label for="select" class=" form-control-label">Numero de cuenta:</label>
                                             </div>
                                             <div class="col-12 col-md-9">
-                                                <input type="number" id="monto" class="form-control" placeholder="0000000">
+                                                <input type="text" id="numCuenta" class="form-control" placeholder="0000000">
+                                                <p class="rojo" id="msgNumCuenta"></p>
                                             </div>
                                         </div>
 
@@ -195,7 +199,8 @@
                                                 <label for="select" class=" form-control-label">Saldo actual:</label>
                                             </div>
                                             <div class="col-12 col-md-9">
-                                                <input type="number" id="monto" class="form-control" placeholder="$0.00">
+                                                <input type="text" id="saldoCuenta" class="form-control" placeholder="$0.00">
+                                                <p class="rojo" id="msgSaldoCuenta"></p>
                                             </div>
                                         </div>
 
@@ -237,15 +242,17 @@
                                                 <label for="select" class=" form-control-label">Banco:</label>
                                             </div>
                                             <div class="col-12 col-md-9">
-                                                <input type="text" id="motivo" class="form-control" placeholder="Escriba el nombre de su banco...">
+                                                <input type="text" id="banco" class="form-control" placeholder="Escriba el nombre de su banco...">
+                                                <p class="rojo" id="msgBanco"></p>
                                             </div>
                                         </div>
                                         <div class="row form-group">
                                             <div class="col col-md-3">
-                                                <label for="select" class=" form-control-label">Numero de cuenta:</label>
+                                                <label for="select" class=" form-control-label">Numero de tarjeta:</label>
                                             </div>
                                             <div class="col-12 col-md-9">
-                                                <input type="number" id="monto" class="form-control" placeholder="0000000">
+                                                <input type="text" id="tarjeta" class="form-control" placeholder="0000000">
+                                                <p class="rojo" id="msgTarjeta"></p>
                                             </div>
                                         </div>
 
@@ -254,7 +261,8 @@
                                                 <label for="select" class=" form-control-label">Saldo actual:</label>
                                             </div>
                                             <div class="col-12 col-md-9">
-                                                <input type="number" id="monto" class="form-control" placeholder="$0.00">
+                                                <input type="text" id="saldoTarjeta" class="form-control" placeholder="$0.00">
+                                                <p class="rojo" id="msgSaldoTarjeta"></p>
                                             </div>
                                         </div>
 
@@ -263,7 +271,7 @@
                                                 <label for="select" class=" form-control-label">Interes anual:</label>
                                             </div>
                                             <div class="col-12 col-md-9">
-                                                <input type="number" id="monto" class="form-control" placeholder="0%">
+                                                <input type="number" id="interes" class="form-control" placeholder="0%">
                                             </div>
                                         </div>
 
