@@ -3,56 +3,135 @@ function iniciar() {
 
     var submit = document.getElementById('submit');
 
+    cargarIngresosLocalStorage();
+
     if(submit.addEventListener){
         submit.addEventListener("click", function(e){
             
             e.preventDefault();
-
-            //var oldIngresos = JSON.parse(localStorage.getItem('ingresosUsuario')) || [];
 
             var fecha = document.getElementById('fecha').value;
             var motivo = document.getElementById('motivo').value;
             var monto = document.getElementById('monto').value;
             var cuenta = document.getElementById('select').value;
 
-            const ingresos = new Ingresos(fecha, motivo, monto, cuenta);
+            var ingresos = new Ingresos(fecha, motivo, monto, cuenta);
 
-            //console.log(typeof(oldIngresos) + typeof(ingresos));
+            agregarObjetoALocalStorage(ingresos);
 
-            //oldIngresos.push(ingresos);
-
-            localStorage.setItem('ingresosUsuario', JSON.stringify(ingresos));
+            document.getElementById('fecha').value = "";
+            document.getElementById('motivo').value = "";
+            document.getElementById('monto').value = "";
+            document.getElementById('select').value = "";
 
             console.log(ingresos);
-
-            //window.location.href = "html/primerospasos.html";
-
             
         }, false);
     } else if(submit.attachEvent){
         submit.attachEvent("click", function(e){
             e.preventDefault();
 
-            var oldIngresos = JSON.parse(localStorage.getItem('ingresosUsuario')) || [];
-
             var fecha = document.getElementById('fecha').value;
             var motivo = document.getElementById('motivo').value;
             var monto = document.getElementById('monto').value;
             var cuenta = document.getElementById('select').value;
 
-            const ingresos = new Ingresos(fecha, motivo, monto, cuenta);
+            var ingresos = new Ingresos(fecha, motivo, monto, cuenta);
 
-            oldIngresos.push(ingresos);
-
-            localStorage.setItem('ingresosUsuario', JSON.stringify(oldIngresos));
+            agregarObjetoALocalStorage(ingresos);
 
             console.log(ingresos);
-
-            //window.location.href = "html/primerospasos.html";
 
         });
     }
 
+    function agregarObjetoALocalStorage(obj) {
+        var ingresos = [],
+            dataInLocalStorage = localStorage.getItem('ingresosUsuario');
+
+        console.log(ingresos);
+
+        console.log(dataInLocalStorage);
+
+        if (dataInLocalStorage !== null) {
+            ingresos = JSON.parse(dataInLocalStorage);
+        }
+
+        console.log(ingresos);
+        console.log(typeof(ingresos));
+
+        var totalIngresos = Object.values(ingresos);
+
+        totalIngresos.push(obj);
+
+        localStorage.setItem('ingresosUsuario', JSON.stringify(totalIngresos));
+
+        cargarIngresosLocalStorage();
+    }
+
+    function cargarIngresosLocalStorage(){
+
+        var ingresos = [],
+        dataInLocalStorage = localStorage.getItem('ingresosUsuario'),
+        tablaHTML = document.getElementById("tbody");
+
+        if (dataInLocalStorage !== null) {
+            ingresos = JSON.parse(dataInLocalStorage);
+        }
+
+        tablaHTML.innerHTML = '';
+
+        ingresos.forEach(function (x, i) {
+            
+            var tr = document.createElement("tr"),
+                tdName = document.createElement("td"),
+                tdJob = document.createElement("td"),
+                tdAge = document.createElement("td"),
+                tdMonto = document.createElement("td"),
+                tdRemove = document.createElement("td"),
+                btnRemove = document.createElement("button");
+
+            tdName.innerHTML = x.fecha;
+            tdJob.innerHTML = x.motivo;
+            tdAge.innerHTML = x.cuenta;
+            tdMonto.innerHTML = x.monto;
+
+            btnRemove.textContent = 'Remove';
+            btnRemove.className = 'btn btn-xs btn-danger';
+            btnRemove.addEventListener('click', function(){
+                eliminarDeLocalStorage(i);
+            });
+
+            tdRemove.appendChild(btnRemove);
+
+            tr.appendChild(tdName);
+            tr.appendChild(tdJob);
+            tr.appendChild(tdAge);
+            tr.appendChild(tdMonto);
+            tr.appendChild(tdRemove);
+
+            tablaHTML.appendChild(tr);
+        });
+
+
+
+
+    }
+
+    function eliminarDeLocalStorage(index){
+
+        var ingresos = [];
+        var dataInLocalStorage = localStorage.getItem('ingresosUsuario');
+
+        ingresos = JSON.parse(dataInLocalStorage);
+
+        ingresos.splice(index, 1);
+
+        localStorage.setItem('ingresosUsuario', JSON.stringify(ingresos));
+
+        cargarIngresosLocalStorage();        
+
+    }
 
 
 }
