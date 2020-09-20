@@ -150,59 +150,13 @@ function iniciar() {
 }
 
 
-
 class Ingresos {
-    
     constructor(fecha, motivo, monto, cuenta){
         this.fecha = fecha;
         this.motivo = motivo;
         this.monto = monto;
         this.cuenta = cuenta;
-        
     }
-    
-    // Getter
-    get cum() {
-       return this.nombre;
-    }
-
-    /* Método
-    calcCUM () {
-
-        var UM = this.calcUM();
-        var UV = this.calcUV();
-
-        var CUMTotal = UM / UV;
-
-        return CUMTotal;
-    }
-
-    calcUM(){
-        var totalUM = 0;
-
-        for(var um = 0; um < 7; um++){
-            
-            
-            totalUM += (parseFloat(notasIngresadas[um]) * parseFloat(uvIngresadas[um]) );
-        }
-
-        //alert(totalUM);
-        return totalUM;
-    }
-
-    calcUV(){
-        var totalUV = 0;
-
-        for(var uv = 0; uv < 7; uv++){
-            
-            
-            totalUV += parseInt(uvIngresadas[uv]);
-        }
-
-        //alert(totalUV);
-        return totalUV;
-    }*/
-
 }
 
 

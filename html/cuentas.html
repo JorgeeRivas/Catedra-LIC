@@ -34,6 +34,7 @@
     <link href="../css/theme.css" rel="stylesheet" media="all">
 
     <script src="./js/validaciones_cuentas.js"></script>
+    <script src="./js/clases_cuentas.js"></script>
 
 </head>
 
@@ -207,7 +208,7 @@
                                        
                                         
                                 <div class="card-footer">
-                                    <button type="submit" id="submit" class="btn btn-primary btn-sm">
+                                    <button type="submit" id="submitCuentas" class="btn btn-primary btn-sm">
                                         <i class="fa fa-dot-circle-o"></i> Guardar
                                     </button>
                                 </div>
@@ -219,13 +220,13 @@
                                 <table class="table table-borderless table-data3">
                                     <thead>
                                         <tr>
-                                            <th>Numero</th>
                                             <th>Banco</th>
                                             <th># de Cuenta</th>
                                             <th>Saldo</th>
+                                            <th>Acciones</th>
                                         </tr>
                                     </thead>
-                                    <tbody id= "tbody">
+                                    <tbody id= "cuentas">
                                     </tbody>
                                 </table>
                             </div>
@@ -305,7 +306,7 @@
                                             <th>Fecha de Vencimiento</th>
                                         </tr>
                                     </thead>
-                                    <tbody id= "tbody">
+                                    <tbody id= "tbody2">
                                     </tbody>
                                 </table>
                             </div>
