@@ -103,7 +103,7 @@
                                             <img src="../images/icon/avatar-01.jpg" alt="John Doe" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">Jose Rivera</a>
+                                            <a class="js-acc-btn imprNombre" href="#">Jose Rivera</a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
@@ -114,9 +114,9 @@
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#">Jose Rivera</a>
+                                                        <a href="#" class="imprNombre">Jose Rivera</a>
                                                     </h5>
-                                                    <span class="email">joseemariaariveraa@gmail.com</span>
+                                                    <span class="email" id="imprEmail">joseemariaariveraa@gmail.com</span>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__body">
@@ -162,7 +162,7 @@
                                                         <label for="disabled-input" class=" form-control-label">Saldo Actual</label>
                                                     </div>
                                                     <div class="col-12 col-md-9">
-                                                        <input type="text" id="" name="disabled-input" placeholder="$0.00" disabled="" class="form-control">
+                                                        <input type="text" id="efectivoActual" name="disabled-input" placeholder="$0.00" disabled="" class="form-control">
                                                     </div>
                                                 </div>
                                             </div>
@@ -287,7 +287,7 @@
                                        
                                         
                                 <div class="card-footer">
-                                    <button type="submit" id="submit" class="btn btn-primary btn-sm">
+                                    <button type="submit" id="submitTarjeta" class="btn btn-primary btn-sm">
                                         <i class="fa fa-dot-circle-o"></i> Guardar
                                     </button>
                                 </div>
@@ -298,12 +298,13 @@
                                 <table class="table table-borderless table-data3">
                                     <thead>
                                         <tr>
-                                            <th>Numero</th>
+                                            
                                             <th>Banco</th>
                                             <th># de Cuenta</th>
                                             <th>Saldo</th>
                                             <th>Interes</th>
                                             <th>Fecha de Vencimiento</th>
+                                            <th>Acción</th>
                                         </tr>
                                     </thead>
                                     <tbody id= "tbody2">
