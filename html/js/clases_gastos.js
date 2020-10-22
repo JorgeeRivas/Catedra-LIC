@@ -84,6 +84,24 @@ function iniciar() {
             sel.appendChild(opt);
 
         });
+
+
+        var tarjetas = [],
+        dataInLocalStorage = localStorage.getItem('tarjetasUsuario');
+
+        if (dataInLocalStorage !== null) {
+            tarjetas = JSON.parse(dataInLocalStorage);
+        }
+
+        tarjetas.forEach(function(x,i){
+
+            var opt = document.createElement('option');
+            opt.value = x.tarjeta;
+            opt.innerHTML = "Tarjeta #" + x.tarjeta;
+            sel.appendChild(opt);
+
+        });
+        
         
     }
 
@@ -171,6 +189,10 @@ class Gastos {
         var gastos = [],
             dataInLocalStorage = localStorage.getItem('gastosUsuario');
 
+        var cargadox = document.getElementById('cargado');
+
+        var selected = cargadox.options[cargadox.selectedIndex].text;
+
         console.log(gastos);
 
         console.log(dataInLocalStorage);
@@ -188,10 +210,15 @@ class Gastos {
 
         localStorage.setItem('gastosUsuario', JSON.stringify(totalGastos));
 
+        //alert(selected.substr(0, 6));
+
         if(obj.cargado == 'Efectivo'){
             this.decrementarEfectivo(obj);
-        }else{
+        }else if(selected.substr(0, 6) == 'Cuenta'){
+            
             this.decrementarCuenta(obj);
+        }else{
+            this.decrementarTarjeta(obj);
         }
 
     }
@@ -208,8 +235,6 @@ class Gastos {
     }
 
     decrementarCuenta(obj){
-
-
 
         var cuentas = [],
             dataInLocalStorage = localStorage.getItem('cuentasUsuario');
@@ -231,6 +256,33 @@ class Gastos {
         var totalCuentas = Object.values(cuentas);
 
         localStorage.setItem('cuentasUsuario', JSON.stringify(totalCuentas));
+
+    }
+
+
+    decrementarTarjeta(obj){
+        
+
+        var tarjetas = [],
+            dataInLocalStorage = localStorage.getItem('tarjetasUsuario');
+
+        if (dataInLocalStorage !== null) {
+            tarjetas = JSON.parse(dataInLocalStorage);
+        }
+
+        tarjetas.forEach(function(x,i){
+
+            if(x.tarjeta == obj.cargado){
+
+                x.saldoTarjeta = parseFloat(x.saldoTarjeta) - parseFloat(obj.monto);
+
+            }
+
+        });
+
+        var totalTarjetas = Object.values(tarjetas);
+
+        localStorage.setItem('tarjetasUsuario', JSON.stringify(totalTarjetas));
 
     }
 

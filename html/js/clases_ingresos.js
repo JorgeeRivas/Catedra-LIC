@@ -84,6 +84,23 @@ function iniciar() {
             sel.appendChild(opt);
 
         });
+
+
+        var tarjetas = [],
+        dataInLocalStorage = localStorage.getItem('tarjetasUsuario');
+
+        if (dataInLocalStorage !== null) {
+            tarjetas = JSON.parse(dataInLocalStorage);
+        }
+
+        tarjetas.forEach(function(x,i){
+
+            var opt = document.createElement('option');
+            opt.value = x.tarjeta;
+            opt.innerHTML = "Tarjeta #" + x.tarjeta;
+            sel.appendChild(opt);
+
+        });
         
     }
 
@@ -167,6 +184,10 @@ class Ingresos {
         var ingresos = [],
             dataInLocalStorage = localStorage.getItem('ingresosUsuario');
 
+        var cargadox = document.getElementById('select');
+
+        var selected = cargadox.options[cargadox.selectedIndex].text;
+
         console.log(ingresos);
 
         console.log(dataInLocalStorage);
@@ -186,8 +207,11 @@ class Ingresos {
 
         if(obj.cuenta == 'Efectivo'){
             this.incrementarEfectivo(obj);
-        }else{
+        }else if(selected.substr(0, 6) == 'Cuenta'){
             this.incrementarCuenta(obj);
+        }else{
+            
+            this.incrementarTarjeta(obj);
         }
     }
 
@@ -225,6 +249,33 @@ class Ingresos {
         var totalCuentas = Object.values(cuentas);
 
         localStorage.setItem('cuentasUsuario', JSON.stringify(totalCuentas));
+
+    }
+
+
+    incrementarTarjeta(obj){
+        
+
+        var tarjetas = [],
+            dataInLocalStorage = localStorage.getItem('tarjetasUsuario');
+
+        if (dataInLocalStorage !== null) {
+            tarjetas = JSON.parse(dataInLocalStorage);
+        }
+
+        tarjetas.forEach(function(x,i){
+
+            if(x.tarjeta == obj.cuenta){
+
+                x.saldoTarjeta = parseFloat(x.saldoTarjeta) + parseFloat(obj.monto);
+
+            }
+
+        });
+
+        var totalTarjetas = Object.values(tarjetas);
+
+        localStorage.setItem('tarjetasUsuario', JSON.stringify(totalTarjetas));
 
     }
 
