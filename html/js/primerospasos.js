@@ -23,15 +23,16 @@ function iniciar() {
             e.preventDefault();
 
             var dinero = document.getElementById('dinero').value;
-            var banco = document.getElementById('banco').value;
-            var NumCuenta = document.getElementById('NumCuenta').value;
-            var SaldoActual = document.getElementById('SaldoActual').value;
 
-            const cuenta = new Cuenta(banco, NumCuenta, SaldoActual);
+            var cuentaa = document.getElementById('banco').value;
+            var numCuenta = document.getElementById('NumCuenta').value;
+            var saldoCuenta = document.getElementById('SaldoActual').value;
+
+            const cuenta = new Cuenta(cuentaa, numCuenta, saldoCuenta);
 
             localStorage.setItem('efectivo', dinero);
 
-            localStorage.setItem('datosCuenta', JSON.stringify(cuenta));
+            agregarObjetoALocalStorage(cuenta);
 
             console.log(cuenta);
 
@@ -44,15 +45,16 @@ function iniciar() {
             e.preventDefault();
 
             var dinero = document.getElementById('dinero').value;
-            var banco = document.getElementById('banco').value;
-            var NumCuenta = document.getElementById('NumCuenta').value;
-            var SaldoActual = document.getElementById('SaldoActual').value;
 
-            const cuenta = new Cuenta(banco, NumCuenta, SaldoActual);
+            var cuentaa = document.getElementById('banco').value;
+            var numCuenta = document.getElementById('NumCuenta').value;
+            var saldoCuenta = document.getElementById('SaldoActual').value;
+
+            const cuenta = new Cuenta(cuentaa, numCuenta, saldoCuenta);
 
             localStorage.setItem('efectivo', dinero);
 
-            localStorage.setItem('datosCuenta', JSON.stringify(cuenta));
+            agregarObjetoALocalStorage(cuenta);
 
             console.log(cuenta);
 
@@ -61,16 +63,40 @@ function iniciar() {
         });
     }
 
+    function agregarObjetoALocalStorage(obj) {
+        var cuentas = [],
+            dataInLocalStorage = localStorage.getItem('cuentasUsuario');
+
+        //console.log(cuentas);
+
+        //console.log(dataInLocalStorage);
+
+        if (dataInLocalStorage !== null) {
+            cuentas = JSON.parse(dataInLocalStorage);
+        }
+
+        //console.log(cuentas);
+        //console.log(typeof(cuentas));
+
+        var totalCuentas = Object.values(cuentas);
+
+        totalCuentas.push(obj);
+
+        localStorage.setItem('cuentasUsuario', JSON.stringify(totalCuentas));
+
+    }
+
 
 
 }
 
 class Cuenta {
     
-    constructor(banco, NumCuenta, SaldoActual){
-        this.banco = banco;
-        this.NumCuenta = NumCuenta;
-        this.SaldoActual = SaldoActual;
+    constructor(cuenta, numCuenta, saldoCuenta){
+
+        this.cuenta = cuenta;
+        this.numCuenta = numCuenta;
+        this.saldoCuenta = saldoCuenta;
     }
 
 }
