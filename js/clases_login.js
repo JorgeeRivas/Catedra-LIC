@@ -1,4 +1,3 @@
-
 function iniciar() {
 
     var submit = document.getElementById('submit');
@@ -29,9 +28,29 @@ function iniciar() {
 
             localStorage.setItem('datosUsuario', JSON.stringify(usuario));
 
-            console.log(usuario);
+            var confirmar = true;
 
-            window.location.href = "html/primerospasos.html";
+            for(var x = 0; x < arreglo.length; x++){
+
+                console.log(arreglo[x]);
+                if(arreglo[x] == 0){
+                    alert("Dato erroneo");
+                    confirmar = false;
+                    break;
+                }
+            }
+
+            if(confirmar == true){
+                const usuario = new Usuario(nombre, apellido, email, password, departamento, municipio, colonia, calle, numerocasa, dui, nit, celular, fecha);
+
+                localStorage.setItem('datosUsuario', JSON.stringify(usuario));
+
+                console.log(usuario);
+
+                window.location.href = "html/primerospasos.html";
+            }else{
+                alert("Error");
+            }
 
             
         }, false);

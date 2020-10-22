@@ -1,3 +1,9 @@
+    var arreglo = [];
+
+    for(var x=0; x < 11; x++){
+        arreglo[x]=0;
+    }
+
 function init() {
 
     var nombre = document.getElementById('nombres');
@@ -27,7 +33,7 @@ function init() {
     addEventHandler(dui, 'blur', validarDui);
     addEventHandler(nit, 'blur', validarNit);
     addEventHandler(numero, 'blur', validarNumero);
-    addEventHandler(fecha, 'blur', validarFecha);
+    //addEventHandler(fecha, 'blur', validarFecha);
 
 }
 
@@ -66,6 +72,7 @@ function validarNombres(){
     re = /^[a-zA-Z]+\s[a-zA-Z]+$/;
 
     if(re.test(code)){
+        arreglo[0]=1;
         return true;
     }else{
         document.getElementById('msgNombre').style.display = "block";
@@ -75,6 +82,7 @@ function validarNombres(){
         document.getElementById('msgNombre').style.width = "90%";
         document.getElementById('msgNombre').innerHTML = "Debe contener dos grupos de letras separadas por un espacio";
         
+        arreglo[0]=0;
         return false;
     }
 
@@ -88,6 +96,7 @@ function validarApellidos(){
     re = /^[a-zA-Z]+\s[a-zA-Z]+$/;
 
     if(re.test(code)){
+        arreglo[1]=1;
         return true;
     }else{
         document.getElementById('msgApellidos').style.display = "block";
@@ -97,6 +106,7 @@ function validarApellidos(){
         document.getElementById('msgApellidos').style.width = "90%";
         document.getElementById('msgApellidos').innerHTML = "Debe contener dos grupos de letras separadas por un espacio";
         
+        arreglo[1]=0;
         return false;
     }
 
@@ -111,6 +121,7 @@ function validarPassword(){
     re = /^[a-zA-Z0-9]+$/;
 
     if(re.test(code)){
+        arreglo[2]=1;
         return true;
     }else{
         document.getElementById('msgPassword').style.display = "block";
@@ -120,6 +131,7 @@ function validarPassword(){
         document.getElementById('msgPassword').style.width = "90%";
         document.getElementById('msgPassword').innerHTML = "Ingrese una contraseña con caracteres alphanumericos";
         
+        arreglo[2]=0;
         return false;
     }
 
@@ -133,7 +145,10 @@ function validarEmail(){
     re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
 
     if(re.test(code)){
+        arreglo[3]=1;
         return true;
+        
+
     }else{
         document.getElementById('msgEmail').style.display = "block";
         document.getElementById('msgEmail').style.height = "32px";
@@ -142,6 +157,7 @@ function validarEmail(){
         document.getElementById('msgEmail').style.width = "90%";
         document.getElementById('msgEmail').innerHTML = "Debe ingresar un correo electronico valido";
         
+        arreglo[3]=0;
         return false;
     }
 
@@ -155,7 +171,9 @@ function validarDepartamento(){
     re = /^[ñA-Za-z _]*[ñA-Za-z][ñA-Za-z _]*$/;
 
     if(re.test(code)){
+        arreglo[4]=1;
         return true;
+        
     }else{
         document.getElementById('msgDepartamento').style.display = "block";
         document.getElementById('msgDepartamento').style.height = "32px";
@@ -164,6 +182,7 @@ function validarDepartamento(){
         document.getElementById('msgDepartamento').style.width = "90%";
         document.getElementById('msgDepartamento').innerHTML = "Ingrese un departamento valido";
         
+        arreglo[4]=0;
         return false;
     }
 
@@ -177,7 +196,9 @@ function validarMunicipio(){
     re = /^[A-Za-z\s]+$/;
 
     if(re.test(code)){
+        arreglo[5]=1;
         return true;
+        
     }else{
         document.getElementById('msgMunicipio').style.display = "block";
         document.getElementById('msgMunicipio').style.height = "32px";
@@ -186,6 +207,7 @@ function validarMunicipio(){
         document.getElementById('msgMunicipio').style.width = "90%";
         document.getElementById('msgMunicipio').innerHTML = "Ingrese un municipio valido";
         
+        arreglo[5]=0;
         return false;
     }
 
@@ -199,7 +221,10 @@ function validarMunicipio(){
         re = /^[A-Za-z0-9\s]+$/;
 
         if(re.test(code)){
+            arreglo[6]=1;
             return true;
+            
+
         }else{
             document.getElementById('msgColonia').style.display = "block";
             document.getElementById('msgColonia').style.height = "32px";
@@ -208,6 +233,7 @@ function validarMunicipio(){
             document.getElementById('msgColonia').style.width = "90%";
             document.getElementById('msgColonia').innerHTML = "Ingrese una colonia valida";
             
+            arreglo[6]=0;
             return false;
         }
     }
@@ -220,7 +246,10 @@ function validarMunicipio(){
         re = /^[A-Za-z0-9\s]+$/;
 
         if(re.test(code)){
+            arreglo[7]=1;
             return true;
+            
+
         }else{
             document.getElementById('msgCalle').style.display = "block";
             document.getElementById('msgCalle').style.height = "32px";
@@ -229,6 +258,7 @@ function validarMunicipio(){
             document.getElementById('msgCalle').style.width = "90%";
             document.getElementById('msgCalle').innerHTML = "Ingrese una calle valida";
             
+            arreglo[7]=0;
             return false;
         }
     }
@@ -241,7 +271,10 @@ function validarMunicipio(){
         re = /^[0-9]+$/;
 
         if(re.test(code)){
+            arreglo[8]=1;
             return true;
+            
+
         }else{
             document.getElementById('msgCasa').style.display = "block";
             document.getElementById('msgCasa').style.height = "32px";
@@ -250,6 +283,7 @@ function validarMunicipio(){
             document.getElementById('msgCasa').style.width = "90%";
             document.getElementById('msgCasa').innerHTML = "Ingrese un numero de casa valido";
             
+            arreglo[8]=0;
             return false;
         }
     }
@@ -262,7 +296,9 @@ function validarMunicipio(){
         re = /^\d{8}-\d{1}$/;
 
         if(re.test(code)){
+            arreglo[9]=1;
             return true;
+            
         }else{
             document.getElementById('msgDui').style.display = "block";
             document.getElementById('msgDui').style.height = "32px";
@@ -271,6 +307,7 @@ function validarMunicipio(){
             document.getElementById('msgDui').style.width = "90%";
             document.getElementById('msgDui').innerHTML = "Ingrese un numero de DUI valido con el guion";
             
+            arreglo[9]=0;
             return false;
         }
     }
@@ -283,7 +320,10 @@ function validarMunicipio(){
         re = /^\d{4}-\d{6}-\d{3}-\d{1}$/;
 
         if(re.test(code)){
+            arreglo[10]=1;
             return true;
+            
+
         }else{
             document.getElementById('msgNit').style.display = "block";
             document.getElementById('msgNit').style.height = "32px";
@@ -292,6 +332,7 @@ function validarMunicipio(){
             document.getElementById('msgNit').style.width = "90%";
             document.getElementById('msgNit').innerHTML = "Ingrese un numero de NIT valido con los respectivos guiones";
             
+            arreglo[10]=0;
             return false;
         }
     }
@@ -304,7 +345,10 @@ function validarMunicipio(){
         re = /^\d{4}-\d{4}$/;
 
         if(re.test(code)){
+            arreglo[11]=1;
             return true;
+           
+
         }else{
             document.getElementById('msgNum').style.display = "block";
             document.getElementById('msgNum').style.height = "32px";
@@ -313,6 +357,7 @@ function validarMunicipio(){
             document.getElementById('msgNum').style.width = "90%";
             document.getElementById('msgNum').innerHTML = "Ingrese un numero de numero valido con el guion";
             
+            arreglo[11]=0;
             return false;
         }
     }
