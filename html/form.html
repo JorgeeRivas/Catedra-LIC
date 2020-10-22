@@ -33,6 +33,8 @@
     <!-- Main CSS-->
     <link href="../css/theme.css" rel="stylesheet" media="all">
 
+    <script src="./js/validaciones_configuracion.js"></script>
+
 </head>
 
 <body class="animsition">
@@ -225,11 +227,13 @@
                                     <div class="card-body card-block">
                                         <div class="has-success form-group">
                                             <label for="inputSuccess2i" class=" form-control-label">Ingresos</label>
-                                            <input type="text" id="inputSuccess2i" class="form-control-success form-control">
+                                            <input type="text" id="ingreso" class="form-control-success form-control">
+                                            <p id="msgIngreso"></p>
                                         </div>
                                         <div class="has-warning form-group">
                                             <label for="inputWarning2i" class=" form-control-label">Gastos</label>
-                                            <input type="text" id="inputWarning2i" class="form-control-warning form-control">
+                                            <input type="text" id="gastos" class="form-control-warning form-control">
+                                            <p id="msgGasto"></p>
                                         </div>
                                         <div class="has-danger has-feedback form-group">
                                             <label for="inputError2i" class=" form-control-label">Seleccione cantidad para mostrar aviso</label>
