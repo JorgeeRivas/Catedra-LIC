@@ -8,6 +8,8 @@ function iniciar() {
 
     var nombre = document.getElementsByClassName('imprNombre');
 
+    cargarSelects(); //Funcion para llenar los selects con las cuentas bancarias disponibles
+
     for(var i = 0; i < 2; i++){
         nombre[i].innerHTML = guardado.nombre;
     }
@@ -30,7 +32,8 @@ function iniciar() {
 
             var gastos = new Gastos(fecha, motivo, monto, cargado);
 
-            agregarObjetoALocalStorage(gastos);
+            gastos.agregarObjetoALocalStorage(gastos);
+            cargarGastosLocalStorage();
 
             document.getElementById('fecha').value = "";
             document.getElementById('select').value = "";
@@ -50,7 +53,8 @@ function iniciar() {
 
             var gastos = new Gastos(fecha, motivo, monto, cargado);
 
-            agregarObjetoALocalStorage(gastos);
+            gastos.agregarObjetoALocalStorage(gastos);
+            cargarGastosLocalStorage();
 
             document.getElementById('fecha').value = "";
             document.getElementById('select').value = "";
@@ -60,28 +64,27 @@ function iniciar() {
         });
     }
 
-    function agregarObjetoALocalStorage(obj) {
-        var gastos = [],
-            dataInLocalStorage = localStorage.getItem('gastosUsuario');
 
-        console.log(gastos);
+    function cargarSelects(){
 
-        console.log(dataInLocalStorage);
+        var sel = document.getElementById('cargado');
+
+        var bancos = [],
+        dataInLocalStorage = localStorage.getItem('cuentasUsuario');
 
         if (dataInLocalStorage !== null) {
-            gastos = JSON.parse(dataInLocalStorage);
+            bancos = JSON.parse(dataInLocalStorage);
         }
 
-        console.log(gastos);
-        console.log(typeof(gastos));
+        bancos.forEach(function(x,i){
 
-        var totalGastos = Object.values(gastos);
+            var opt = document.createElement('option');
+            opt.value = x.numCuenta;
+            opt.innerHTML = "Cuenta #" + x.numCuenta;
+            sel.appendChild(opt);
 
-        totalGastos.push(obj);
-
-        localStorage.setItem('gastosUsuario', JSON.stringify(totalGastos));
-
-        cargarGastosLocalStorage();
+        });
+        
     }
 
     function cargarGastosLocalStorage(){
@@ -162,11 +165,77 @@ class Gastos {
         this.cargado = cargado;
         
     }
-    
-    // Getter
-    get cum() {
-       return this.nombre;
+
+
+    agregarObjetoALocalStorage(obj) {
+        var gastos = [],
+            dataInLocalStorage = localStorage.getItem('gastosUsuario');
+
+        console.log(gastos);
+
+        console.log(dataInLocalStorage);
+
+        if (dataInLocalStorage !== null) {
+            gastos = JSON.parse(dataInLocalStorage);
+        }
+
+        console.log(gastos);
+        console.log(typeof(gastos));
+
+        var totalGastos = Object.values(gastos);
+
+        totalGastos.push(obj);
+
+        localStorage.setItem('gastosUsuario', JSON.stringify(totalGastos));
+
+        if(obj.cargado == 'Efectivo'){
+            this.decrementarEfectivo(obj);
+        }else{
+            this.decrementarCuenta(obj);
+        }
+
     }
+
+
+    decrementarEfectivo(obj){
+
+        var efectivoActual = localStorage.getItem('efectivo'); 
+
+        efectivoActual = parseFloat(efectivoActual) - parseFloat(obj.monto);
+
+        localStorage.setItem('efectivo', efectivoActual);
+        
+    }
+
+    decrementarCuenta(obj){
+
+
+
+        var cuentas = [],
+            dataInLocalStorage = localStorage.getItem('cuentasUsuario');
+
+        if (dataInLocalStorage !== null) {
+            cuentas = JSON.parse(dataInLocalStorage);
+        }
+
+        cuentas.forEach(function(x,i){
+
+            if(x.numCuenta == obj.cargado){
+
+                x.saldoCuenta = parseFloat(x.saldoCuenta) - parseFloat(obj.monto);
+
+            }
+
+        });
+
+        var totalCuentas = Object.values(cuentas);
+
+        localStorage.setItem('cuentasUsuario', JSON.stringify(totalCuentas));
+
+    }
+
+    
+    
 
     
 
