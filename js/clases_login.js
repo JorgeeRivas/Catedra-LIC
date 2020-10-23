@@ -34,7 +34,7 @@ function iniciar() {
 
                 console.log(x + " - " + arreglo[x]);
                 if(arreglo[x] == 0){
-                    alert("Dato erroneo");
+                    
                     confirmar = false;
                     break;
                 }
@@ -49,7 +49,12 @@ function iniciar() {
 
                 window.location.href = "html/primerospasos.html";
             }else{
-                alert("Error");
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Necesitas llenar todos los datos del formulario :D',
+                    
+                  })
             }
 
             

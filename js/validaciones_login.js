@@ -1,10 +1,13 @@
 var arreglo = [];
-
 for(var x=0; x < 12; x++){
     arreglo[x]=0;
 }
 
 function init() {
+
+    Swal.fire({
+        title: "Bienvenido :D"
+    });
 
     var nombre = document.getElementById('nombres');
     var apellidos = document.getElementById('apellidos');
@@ -222,7 +225,6 @@ function validarColonia(){
         re = /^[A-Za-z0-9\s]+$/;
 
         if(re.test(code)){
-            alert("si da")
             arreglo[6]=1;
             return true;
             

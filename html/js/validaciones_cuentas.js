@@ -1,3 +1,8 @@
+var arreglo = [];
+for(var x=0; x < 5; x++){
+    arreglo[x]=0;
+}
+
 function init() {
 
     var cuenta = document.getElementById('cuenta'); //Nombre del banco a la que pertenece la cuenta
@@ -26,6 +31,7 @@ function validarCuenta(){
         re = /^[A-Za-z\s]+$/;
 
         if(re.test(code)){
+            arreglo[0]=1;
             return true;
         }else{
             document.getElementById('msgCuenta').style.display = "block";
@@ -35,6 +41,7 @@ function validarCuenta(){
             document.getElementById('msgCuenta').style.width = "90%";
             document.getElementById('msgCuenta').innerHTML = "Solo se admiten letras";
             
+            arreglo[0]=0;
             return false;
         }
 }
@@ -46,6 +53,7 @@ function validarNumCuenta(){
         re = /^[0-9]+$/;
 
         if(re.test(code)){
+            arreglo[1]=1;
             return true;
         }else{
             document.getElementById('msgNumCuenta').style.display = "block";
@@ -55,6 +63,7 @@ function validarNumCuenta(){
             document.getElementById('msgNumCuenta').style.width = "90%";
             document.getElementById('msgNumCuenta').innerHTML = "Solo se admiten caracteres numericos";
             
+            arreglo[1]=0;
             return false;
         }
 }
@@ -66,6 +75,7 @@ function validarSaldoCuenta(){
         re = /^[0-9]+$/;
 
         if(re.test(code)){
+            arreglo[2]=1;
             return true;
         }else{
             document.getElementById('msgSaldoCuenta').style.display = "block";
@@ -75,6 +85,7 @@ function validarSaldoCuenta(){
             document.getElementById('msgSaldoCuenta').style.width = "90%";
             document.getElementById('msgSaldoCuenta').innerHTML = "Solo se admiten caracteres numericos $ ";
             
+            arreglo[2]=0;
             return false;
         }
 }
@@ -86,6 +97,7 @@ function validarBanco(){
         re = /^[A-Za-z\s]+$/;
 
         if(re.test(code)){
+            arreglo[3]=1;
             return true;
         }else{
             document.getElementById('msgBanco').style.display = "block";
@@ -95,6 +107,7 @@ function validarBanco(){
             document.getElementById('msgBanco').style.width = "90%";
             document.getElementById('msgBanco').innerHTML = "No se admiten caracteres numericos";
             
+            arreglo[3]=0;
             return false;
         }
 }
@@ -106,6 +119,7 @@ function validarTarjeta(){
         re = /^[0-9]+$/;
 
         if(re.test(code)){
+            arreglo[4]=1;
             return true;
         }else{
             document.getElementById('msgTarjeta').style.display = "block";
@@ -115,6 +129,7 @@ function validarTarjeta(){
             document.getElementById('msgTarjeta').style.width = "90%";
             document.getElementById('msgTarjeta').innerHTML = "Ingrese una cantidad numerica";
             
+            arreglo[4]=0;
             return false;
         }
 }
@@ -126,6 +141,7 @@ function validarSaldoTarjeta(){
         re = /^[0-9]+$/;
 
         if(re.test(code)){
+            arreglo[5]=1;
             return true;
         }else{
             document.getElementById('msgSaldoTarjeta').style.display = "block";
@@ -135,6 +151,7 @@ function validarSaldoTarjeta(){
             document.getElementById('msgSaldoTarjeta').style.width = "90%";
             document.getElementById('msgSaldoTarjeta').innerHTML = "Ingrese una cantidad numerica $ ";
             
+            arreglo[5]=1;
             return false;
         }
 }

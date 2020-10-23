@@ -28,15 +28,35 @@ function iniciar() {
             var numCuenta = document.getElementById('NumCuenta').value;
             var saldoCuenta = document.getElementById('SaldoActual').value;
 
-            const cuenta = new Cuenta(cuentaa, numCuenta, saldoCuenta);
+            var confirmar = true;
 
-            localStorage.setItem('efectivo', dinero);
+            for(var x = 0; x < 6; x++){
 
-            agregarObjetoALocalStorage(cuenta);
+                console.log(x + " - " + arreglo[x]);
+                if(arreglo[x] == 0){
+                    
+                    confirmar = false;
+                    break;
+                }
+            }
 
-            console.log(cuenta);
+            if(confirmar == true){
+                const cuenta = new Cuenta(cuentaa, numCuenta, saldoCuenta);
 
-            window.location.href = "estadistica.html";
+                localStorage.setItem('efectivo', dinero);
+
+                agregarObjetoALocalStorage(cuenta);
+
+                console.log(cuenta);
+
+                window.location.href = "estadistica.html";
+            }else{
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Necesitas llenar todos los datos de los primeros pasos :D',
+                  })
+            }
 
             
         }, false);

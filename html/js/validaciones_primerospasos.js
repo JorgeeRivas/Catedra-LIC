@@ -1,3 +1,8 @@
+var arreglo = [];
+for(var x=0; x < 3; x++){
+    arreglo[x]=0;
+}
+
 function init() {
 
     var dinero = document.getElementById('dinero');
@@ -24,6 +29,7 @@ function validarDinero(){
         re = /^[0-9]+$/;
 
         if(re.test(code)){
+            arreglo[0]=1;
             return true;
         }else{
             document.getElementById('msgDinero').style.display = "block";
@@ -33,6 +39,7 @@ function validarDinero(){
             document.getElementById('msgDinero').style.width = "90%";
             document.getElementById('msgDinero').innerHTML = "Ingrese una cantidad numerica $ ";
             
+            arreglo[0]=0;
             return false;
         }
 }
@@ -44,6 +51,7 @@ function validarBanco(){
         re = /^[A-Za-z\s]+$/;
 
         if(re.test(code)){
+            arreglo[1]=1;
             return true;
         }else{
             document.getElementById('msgBanco').style.display = "block";
@@ -52,7 +60,8 @@ function validarBanco(){
             document.getElementById('msgBanco').style.paddingLeft = "9px";
             document.getElementById('msgBanco').style.width = "90%";
             document.getElementById('msgBanco').innerHTML = "No se admiten caracteres numericos";
-            
+
+            arreglo[1]=0;
             return false;
         }
 }
@@ -64,6 +73,7 @@ function validarCuenta(){
         re = /^[0-9]+$/;
 
         if(re.test(code)){
+            arreglo[2]=1;
             return true;
         }else{
             document.getElementById('msgCuenta').style.display = "block";
@@ -72,7 +82,8 @@ function validarCuenta(){
             document.getElementById('msgCuenta').style.paddingLeft = "9px";
             document.getElementById('msgCuenta').style.width = "90%";
             document.getElementById('msgCuenta').innerHTML = "Solo se admiten caracteres numericos";
-            
+
+            arreglo[2]=0;
             return false;
         }
 }
@@ -84,6 +95,7 @@ function validarSaldoActual(){
         re = /^[0-9]+$/;
 
         if(re.test(code)){
+            arreglo[3]=1;
             return true;
         }else{
             document.getElementById('msgSaldoAc').style.display = "block";
@@ -92,7 +104,8 @@ function validarSaldoActual(){
             document.getElementById('msgSaldoAc').style.paddingLeft = "9px";
             document.getElementById('msgSaldoAc').style.width = "90%";
             document.getElementById('msgSaldoAc').innerHTML = "Solo se admiten caracteres numericos";
-            
+
+            arreglo[3]=0;
             return false;
         }
 }
