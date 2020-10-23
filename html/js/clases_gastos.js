@@ -30,15 +30,39 @@ function iniciar() {
             var monto = document.getElementById('Monto').value;
             var cargado = document.getElementById('cargado').value;
 
-            var gastos = new Gastos(fecha, motivo, monto, cargado);
+            var confirmar = true;
 
-            gastos.agregarObjetoALocalStorage(gastos);
-            cargarGastosLocalStorage();
+            for(var x = 0; x < 2; x++){
 
-            document.getElementById('fecha').value = "";
-            document.getElementById('select').value = "";
-            document.getElementById('Monto').value = "";
-            document.getElementById('cargado').value = "";
+                console.log(x + " - " + arreglo[x]);
+                if(arreglo[x] == 0){
+                    
+                    confirmar = false;
+                    break;
+                }
+            }
+
+            if(confirmar == true){
+                var gastos = new Gastos(fecha, motivo, monto, cargado);
+
+                gastos.agregarObjetoALocalStorage(gastos);
+                cargarGastosLocalStorage();
+    
+                document.getElementById('fecha').value = "";
+                document.getElementById('select').value = "";
+                document.getElementById('Monto').value = "";
+                document.getElementById('cargado').value = "";
+
+            }else{
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Igrese todos sus datos :D',
+                  })
+            }
+
+
+
 
             
         }, false);

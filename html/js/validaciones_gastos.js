@@ -1,12 +1,13 @@
+var arreglo = [];
+for(var x=0; x < 2; x++){
+    arreglo[x]=0;
+}
+
 function init() {
 
     var otro = document.getElementById('otro');
     var monto  = document.getElementById('Monto');
     
-
-
-    
-
     addEventHandler(otro, 'blur', validarMotivo);
     addEventHandler(monto, 'blur',  validarMonto);
   
@@ -23,6 +24,7 @@ function validarMotivo(){
         re = /^[A-Za-z0-9\s]+$/;
 
         if(re.test(code)){
+            arreglo[0]=1;
             return true;
         }else{
             document.getElementById('msgMotivo').style.display = "block";
@@ -32,6 +34,7 @@ function validarMotivo(){
             document.getElementById('msgMotivo').style.width = "90%";
             document.getElementById('msgMotivo').innerHTML = "Ingrese un motivo valido";
             
+            arreglo[0]=0;
             return false;
         }
 }
@@ -43,6 +46,7 @@ function validarMonto(){
         re = /^[0-9]+$/;
 
         if(re.test(code)){
+            arreglo[1]=1;
             return true;
         }else{
             document.getElementById('msgMonto').style.display = "block";
@@ -50,7 +54,9 @@ function validarMonto(){
             document.getElementById('msgMonto').style.paddingTop = "4px";
             document.getElementById('msgMonto').style.paddingLeft = "9px";
             document.getElementById('msgMonto').style.width = "90%";
-            document.getElementById('msgMonto').innerHTML = "Ingrese una cantidad numerica $ ";            
+            document.getElementById('msgMonto').innerHTML = "Ingrese una cantidad numerica $ ";
+            
+            arreglo[1]=0;
             return false;
         }
 }

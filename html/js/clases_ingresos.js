@@ -30,18 +30,44 @@ function iniciar() {
             var monto = document.getElementById('monto').value;
             var cuenta = document.getElementById('select').value;
 
-            var ingresos = new Ingresos(fecha, motivo, monto, cuenta);
+            
 
-            ingresos.agregarObjetoALocalStorage(ingresos);
 
-            cargarIngresosLocalStorage();
+            var confirmar = true;
 
-            document.getElementById('fecha').value = "";
-            document.getElementById('motivo').value = "";
-            document.getElementById('monto').value = "";
-            document.getElementById('select').value = "";
+            for(var x = 0; x < 2; x++){
 
-            console.log(ingresos);
+                console.log(x + " - " + arreglo[x]);
+                if(arreglo[x] == 0){
+                    
+                    confirmar = false;
+                    break;
+                }
+            }
+
+            if(confirmar == true){
+                var ingresos = new Ingresos(fecha, motivo, monto, cuenta);
+
+                ingresos.agregarObjetoALocalStorage(ingresos);
+
+                cargarIngresosLocalStorage();
+
+                document.getElementById('fecha').value = "";
+                document.getElementById('motivo').value = "";
+                document.getElementById('monto').value = "";
+                document.getElementById('select').value = "";
+
+                console.log(ingresos);
+
+            }else{
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Igrese todos sus datos :D',
+                  })
+            }
+
+
             
         }, false);
     } else if(submit.attachEvent){

@@ -1,6 +1,11 @@
 var arreglo = [];
-for(var x=0; x < 5; x++){
+for(var x=0; x < 3; x++){
     arreglo[x]=0;
+}
+
+var arreglo2 = [];
+for(var x=0; x < 3; x++){
+    arreglo2[x]=0;
 }
 
 function init() {
@@ -97,7 +102,7 @@ function validarBanco(){
         re = /^[A-Za-z\s]+$/;
 
         if(re.test(code)){
-            arreglo[3]=1;
+            arreglo2[0]=1;
             return true;
         }else{
             document.getElementById('msgBanco').style.display = "block";
@@ -107,7 +112,7 @@ function validarBanco(){
             document.getElementById('msgBanco').style.width = "90%";
             document.getElementById('msgBanco').innerHTML = "No se admiten caracteres numericos";
             
-            arreglo[3]=0;
+            arreglo2[0]=0;
             return false;
         }
 }
@@ -119,7 +124,7 @@ function validarTarjeta(){
         re = /^[0-9]+$/;
 
         if(re.test(code)){
-            arreglo[4]=1;
+            arreglo2[1]=1;
             return true;
         }else{
             document.getElementById('msgTarjeta').style.display = "block";
@@ -129,7 +134,7 @@ function validarTarjeta(){
             document.getElementById('msgTarjeta').style.width = "90%";
             document.getElementById('msgTarjeta').innerHTML = "Ingrese una cantidad numerica";
             
-            arreglo[4]=0;
+            arreglo2[1]=0;
             return false;
         }
 }
@@ -141,7 +146,7 @@ function validarSaldoTarjeta(){
         re = /^[0-9]+$/;
 
         if(re.test(code)){
-            arreglo[5]=1;
+            arreglo2[2]=1;
             return true;
         }else{
             document.getElementById('msgSaldoTarjeta').style.display = "block";
@@ -151,18 +156,10 @@ function validarSaldoTarjeta(){
             document.getElementById('msgSaldoTarjeta').style.width = "90%";
             document.getElementById('msgSaldoTarjeta').innerHTML = "Ingrese una cantidad numerica $ ";
             
-            arreglo[5]=1;
+            arreglo2[2]=0;
             return false;
         }
 }
-
-
-
-
-
-
-
-
 
 
 

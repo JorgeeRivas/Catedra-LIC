@@ -31,6 +31,20 @@ function iniciar() {
                 var numCuenta = document.getElementById('numCuenta').value;
                 var saldoCuenta = document.getElementById('saldoCuenta').value;
     
+                
+                var confirmar = true;
+
+                for(var x = 0; x < 3; x++){
+
+                console.log(x + " - " + arreglo[x]);
+                if(arreglo[x] == 0){
+                    
+                    confirmar = false;
+                    break;
+                }
+            }
+
+            if(confirmar == true){
                 var cuentas = new NuevaCuenta(cuenta, numCuenta, saldoCuenta);
 
                 console.log(cuentas);
@@ -42,6 +56,18 @@ function iniciar() {
                 document.getElementById('saldoCuenta').value = "";
     
                 console.log(cuentas);
+
+            }else{
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Igrese todos los datos de su cuenta :D',
+                  })
+            }
+
+
+
+
                 
             }, false);
         } else if(submit.attachEvent){
@@ -73,6 +99,19 @@ function iniciar() {
                 var interes = document.getElementById('interes').value;
                 var fecha = document.getElementById('fecha').value;
     
+                var confirmar = true;
+
+            for(var x = 0; x < 3; x++){
+
+                console.log(x + " - " + arreglo2[x]);
+                if(arreglo2[x] == 0){
+                    
+                    confirmar = false;
+                    break;
+                }
+            }
+
+            if(confirmar == true){
                 var tarjetas = new NuevaTarjeta(banco, tarjeta, saldoTarjeta, interes, fecha);
 
     
@@ -83,6 +122,14 @@ function iniciar() {
                 document.getElementById('saldoTarjeta').value = "";
                 document.getElementById('interes').value = "";
                 document.getElementById('fecha').value = "";
+
+            }else{
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Igrese todos los datos de su tarjeta :D',
+                  })
+            }
     
                 
             }, false);
