@@ -30,9 +30,9 @@ function iniciar() {
 
             var confirmar = true;
 
-            for(var x = 0; x < arreglo.length; x++){
+            for(var x = 0; x < 12; x++){
 
-                console.log(arreglo[x]);
+                console.log(x + " - " + arreglo[x]);
                 if(arreglo[x] == 0){
                     alert("Dato erroneo");
                     confirmar = false;

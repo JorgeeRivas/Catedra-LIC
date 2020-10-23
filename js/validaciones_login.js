@@ -1,8 +1,8 @@
-    var arreglo = [];
+var arreglo = [];
 
-    for(var x=0; x < 11; x++){
-        arreglo[x]=0;
-    }
+for(var x=0; x < 12; x++){
+    arreglo[x]=0;
+}
 
 function init() {
 
@@ -112,31 +112,6 @@ function validarApellidos(){
 
 }
 
-
-function validarPassword(){
-    
-    var code = document.getElementById('password').value;
-    document.getElementById('msgPassword').style.display = "none";
-
-    re = /^[a-zA-Z0-9]+$/;
-
-    if(re.test(code)){
-        arreglo[2]=1;
-        return true;
-    }else{
-        document.getElementById('msgPassword').style.display = "block";
-        document.getElementById('msgPassword').style.height = "32px";
-        document.getElementById('msgPassword').style.paddingTop = "4px";
-        document.getElementById('msgPassword').style.paddingLeft = "9px";
-        document.getElementById('msgPassword').style.width = "90%";
-        document.getElementById('msgPassword').innerHTML = "Ingrese una contraseña con caracteres alphanumericos";
-        
-        arreglo[2]=0;
-        return false;
-    }
-
-}
-
 function validarEmail(){
     
     var code = document.getElementById('email').value;
@@ -145,7 +120,7 @@ function validarEmail(){
     re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
 
     if(re.test(code)){
-        arreglo[3]=1;
+        arreglo[2]=1;
         return true;
         
 
@@ -157,11 +132,37 @@ function validarEmail(){
         document.getElementById('msgEmail').style.width = "90%";
         document.getElementById('msgEmail').innerHTML = "Debe ingresar un correo electronico valido";
         
+        arreglo[2]=0;
+        return false;
+    }
+
+}
+
+function validarPassword(){
+    
+    var code = document.getElementById('password').value;
+    document.getElementById('msgPassword').style.display = "none";
+
+    re = /^[a-zA-Z0-9]+$/;
+
+    if(re.test(code)){
+        arreglo[3]=1;
+        return true;
+    }else{
+        document.getElementById('msgPassword').style.display = "block";
+        document.getElementById('msgPassword').style.height = "32px";
+        document.getElementById('msgPassword').style.paddingTop = "4px";
+        document.getElementById('msgPassword').style.paddingLeft = "9px";
+        document.getElementById('msgPassword').style.width = "90%";
+        document.getElementById('msgPassword').innerHTML = "Ingrese una contraseña con caracteres alphanumericos";
+        
         arreglo[3]=0;
         return false;
     }
 
 }
+
+
 
 function validarDepartamento(){
     
@@ -213,7 +214,7 @@ function validarMunicipio(){
 
 }
 
-    function validarColonia(){
+function validarColonia(){
         
         var code = document.getElementById('colonia').value;
         document.getElementById('msgColonia').style.display = "none";
@@ -221,6 +222,7 @@ function validarMunicipio(){
         re = /^[A-Za-z0-9\s]+$/;
 
         if(re.test(code)){
+            alert("si da")
             arreglo[6]=1;
             return true;
             
