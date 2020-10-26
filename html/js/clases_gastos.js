@@ -14,6 +14,8 @@ function iniciar() {
         nombre[i].innerHTML = guardado.nombre;
     }
     
+    arreglo[0] = 1;
+    
     document.getElementById('imprEmail').innerHTML = guardado.email;
 
     var submit = document.getElementById('submit');
