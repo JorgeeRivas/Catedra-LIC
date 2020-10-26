@@ -34,6 +34,7 @@
     <link href="../css/theme.css" rel="stylesheet" media="all">
 
     <script src="./js/validaciones_configuracion.js"></script>
+    <script src="./js/clases_config.js"></script>
 
 </head>
 
@@ -154,7 +155,7 @@
                             <div class="col-md-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <strong>Tipo de pago</strong> 
+                                        <strong>Tipo de pago - Balance de cuentas</strong> 
                                     </div>
                                     <div class="card-body card-block">
                                         <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
@@ -169,10 +170,10 @@
                                         
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
-                                                    <label for="select" class=" form-control-label">Tipo de pago</label>
+                                                    <label for="select" class=" form-control-label">Tipo de pago por defecto</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <select name="select" id="select"class="form-control">
+                                                    <select name="select" id="selectpago"class="form-control">
                                                 
                                                         <option value="1">Efectivo</option>
                                                         <option value="2">Cuenta de banco</option>
@@ -180,87 +181,50 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="select" class=" form-control-label">Tipo de cuenta </label>
+                                            
+
+                                            <div class="card-body card-block">
+                                                <div class="has-success form-group">
+                                                    <label for="inputSuccess2i" class=" form-control-label">Ingresos</label>
+                                                    <input type="text" id="ingreso" class="form-control-success form-control">
+                                                    <p id="msgIngreso"></p>
                                                 </div>
-                                                <div class="col-12 col-md-9">
-                                                    <select name="disabledSelect" id="select" disabled="" class="form-control">
+                                                <div class="has-warning form-group">
+                                                    <label for="inputWarning2i" class=" form-control-label">Gastos</label>
+                                                    <input type="text" id="gastos" class="form-control-warning form-control">
+                                                    <p id="msgGasto"></p>
+                                                </div>
+                                                <div class="has-danger has-feedback form-group">
+                                                    <label for="inputError2i" class=" form-control-label">Seleccione cantidad para mostrar aviso</label>
+                                                    
+                                             
+                                                    <select name="disabledSelect"  id="porcentaje" class="form-control">
                                                         <option value="0">Seleccione una opción</option>
-                                                        <option value="1">Corriente</option>
-                                                        <option value="2">Ahorro</option>
-                                                        <option value="3">Nomina</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="select" class=" form-control-label">Tipo de tarjeta </label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <select name="disabledSelect" disabled=""  id="select" class="form-control">
-                                                        <option value="0">Seleccione una opción</option>
-                                                        <option value="1">Debito</option>
-                                                        <option value="2">Credito</option>
+                                                        <option value="1">-10%</option>
+                                                        <option value="2">-20%</option>
+                                                        <option value="3">-30%</option>
+                                                        <option value="4">-40%</option>
+                                                        <option value="5">-50%</option>
                                                  
                                                     </select>
                                                 </div>
                                             </div>
+
+
+
+
                                             
                                     <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary btn-sm">
+                                        <button type="submit" class="btn btn-primary btn-sm" id="submit">
                                             <i class="fa fa-dot-circle-o"></i> Guardar
                                         </button>
-                                        <button type="reset" class="btn btn-danger btn-sm">
-                                            <i class="fa fa-ban"></i> Reiniciar
-                                        </button>
+                                       
                                     </div>
                                 </div>
                             
                             </div>
                        
-                            <div class="col-md-15">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <strong>Balance de cuenta</strong> 
-                                    </div>
-                                    <div class="card-body card-block">
-                                        <div class="has-success form-group">
-                                            <label for="inputSuccess2i" class=" form-control-label">Ingresos</label>
-                                            <input type="text" id="ingreso" class="form-control-success form-control">
-                                            <p id="msgIngreso"></p>
-                                        </div>
-                                        <div class="has-warning form-group">
-                                            <label for="inputWarning2i" class=" form-control-label">Gastos</label>
-                                            <input type="text" id="gastos" class="form-control-warning form-control">
-                                            <p id="msgGasto"></p>
-                                        </div>
-                                        <div class="has-danger has-feedback form-group">
-                                            <label for="inputError2i" class=" form-control-label">Seleccione cantidad para mostrar aviso</label>
-                                            
-                                     
-                                            <select name="disabledSelect"  id="select" class="form-control">
-                                                <option value="0">Seleccione una opción</option>
-                                                <option value="1">-10%</option>
-                                                <option value="2">-20%</option>
-                                                <option value="3">-30%</option>
-                                                <option value="4">-40%</option>
-                                                <option value="5">-50%</option>
-                                         
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary btn-sm">
-                                            <i class="fa fa-dot-circle-o"></i> Guardar
-                                        </button>
-                                        <button type="reset" class="btn btn-danger btn-sm">
-                                            <i class="fa fa-ban"></i> Reiniciar
-                                        </button>
-                                    </div>
-                                </div>
-                                
-                            </div>
+                           
                             </div>
                             </div>
                         <div class="row">
@@ -282,6 +246,7 @@
     <!-- Bootstrap JS-->
     <script src="../vendor/bootstrap-4.1/popper.min.js"></script>
     <script src="../vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <!-- Vendor JS       -->
     <script src="../vendor/slick/slick.min.js">
     </script>

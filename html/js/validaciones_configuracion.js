@@ -1,3 +1,9 @@
+var arreglo = [];
+for(var x=0; x < 2; x++){
+    arreglo[x]=0;
+}
+
+
 function init() {
 
     var ingreso = document.getElementById('ingreso');
@@ -21,6 +27,7 @@ function validarIngreso(){
         re = /^[0-9]+$/;
 
         if(re.test(code)){
+            arreglo[0]=1;
             return true;
         }else{
             document.getElementById('msgIngreso').style.display = "block";
@@ -30,6 +37,7 @@ function validarIngreso(){
             document.getElementById('msgIngreso').style.width = "90%";
             document.getElementById('msgIngreso').innerHTML = "Ingrese solo cantidad numerica $ ";
             
+            arreglo[0]=0;
             return false;
         }
 }
@@ -41,6 +49,7 @@ function validarGastos(){
         re = /^[0-9]+$/;
 
         if(re.test(code)){
+            arreglo[1]=1;
             return true;
         }else{
             document.getElementById('msgGasto').style.display = "block";
@@ -48,7 +57,9 @@ function validarGastos(){
             document.getElementById('msgGasto').style.paddingTop = "4px";
             document.getElementById('msgGasto').style.paddingLeft = "9px";
             document.getElementById('msgGasto').style.width = "90%";
-            document.getElementById('msgGasto').innerHTML = "Ingrese una cantidad numerica $ ";            
+            document.getElementById('msgGasto').innerHTML = "Ingrese una cantidad numerica $ "; 
+
+            arreglo[1]=0;       
             return false;
         }
 }
