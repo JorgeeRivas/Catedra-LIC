@@ -111,7 +111,7 @@
                                             <img src="../images/icon/avatar-01.jpg" alt="John Doe" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">Jose Rivera</a>
+                                            <a class="js-acc-btn imprNombre" href="#">Jose Rivera</a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
@@ -122,9 +122,9 @@
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#">Jose Rivera</a>
+                                                        <a href="#" class="imprNombre">Jose Rivera</a>
                                                     </h5>
-                                                    <span class="email">joseemariaariveraa@gmail.com</span>
+                                                    <span class="email" id="imprEmail">joseemariaariveraa@gmail.com</span>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__body">
@@ -221,11 +221,6 @@
                     </div>
                 </div>
 
-
-
-
-
-
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="row">
@@ -235,14 +230,7 @@
                                         <strong>Estadisticas Mensuales </strong> 
                                     </div>
                                         <div class="card-body card-block">
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label class=" form-control-label">Usuario</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <p class="form-control-static"></p>
-                                                </div>
-                                            </div>
+                                            
                                          
                                             
                                             <div class="row form-group">
@@ -270,26 +258,7 @@
                                                 </div>
                                             </div>
 
-                                            <!--
-                                   
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="select" class=" form-control-label">Año a visualizar</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <select name="select" id="select"  class="form-control">
-                                                        <option value="0">Seleccione una opción</option>
-                                                        <option value="1">2020</option>
-                                                        <option value="2">2019</option>
-                                                        <option value="3">2018</option>
-                                                        <option value="4">2017</option>
-                                                        <option value="5">2016</option>
-                                                        <option value="6">2015</option>
-                                                     
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            -->
+ 
 
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
@@ -340,17 +309,7 @@
                                 <strong>Estadisticas Anuales </strong> 
                             </div>
                                 <div class="card-body card-block">
-                                    <div class="row form-group">
-                                        <div class="col col-md-3">
-                                            <label class=" form-control-label">Usuario</label>
-                                        </div>
-                                        <div class="col-12 col-md-9">
-                                            <p class="form-control-static"></p>
-                                        </div>
-                                    </div>
-                                 
-                                    
-                           
+
                                     <div class="row form-group">
                                         <div class="col col-md-3">
                                             <label for="select" class=" form-control-label">Año a visualizar</label>
@@ -420,15 +379,7 @@
                         <strong>Estadisticas por Periodo </strong> 
                     </div>
                         <div class="card-body card-block">
-                            <div class="row form-group">
-                                <div class="col col-md-3">
-                                    <label class=" form-control-label">Usuario</label>
-                                </div>
-                                <div class="col-12 col-md-9">
-                                    <p class="form-control-static"></p>
-                                </div>
-                            </div>
-                         
+                           
                             <div class="row form-group">
                                 <div class="col col-md-3">
                                     <label for="select" class=" form-control-label">Desde la fecha:</label>
@@ -483,16 +434,55 @@
                     </div>  
 
                     
-        <div class="row">
-            <div class="col-md-12">
-                <div class="copyright">
-                    <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
-                </div>
-            </div>
-        </div>
+        
     </div>
 </div>
 </div>
+</div>
+
+<div class="section__content section__content--p30">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong>Balance Mínimo </strong> 
+                    </div>
+                        <div class="card-body card-block">
+                            
+                         
+                            
+                            <div class="row form-group">
+                                <div class="col col-md-3">
+                                    <label for="select" class=" form-control-label">Consultar Balance</label>
+                                </div>
+
+                                <div class="col-12 col-md-9">
+                                    <button class="btn btn-info" id="consultarBalance">Consultar</button>
+                                </div>
+                            </div>
+
+                           
+
+                            
+                            
+                        </div>  
+                </div>  
+                          
+            
+                    
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="copyright">
+                            <p>Copyright © 2020 Lenguajes Interpretados al Cliente. All rights reserved.</p>
+                        </div>
+                    </div>
+                </div>
+                    
+        
+            </div>
+        </div>
+    </div>
 </div>
 
     </div>
@@ -517,6 +507,7 @@
     <script src="../vendor/chartjs/Chart.bundle.min.js"></script>
     <script src="../vendor/select2/select2.min.js">
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <!-- Main JS-->
     <script src="../js/main.js"></script>

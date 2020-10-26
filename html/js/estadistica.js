@@ -1,6 +1,19 @@
+var gastosHTML = 0, pagosHTML = 0, ingresosHTML = 0;
+
 $( document ).ready(function() {
     
-    var gastosHTML = 0, pagosHTML = 0, ingresosHTML = 0;
+    //Codigo para imprimir los datos guardados en LocalStorage
+    var guardado = localStorage.getItem('datosUsuario');
+
+    var guardado = JSON.parse(guardado);
+
+    var nombre = document.getElementsByClassName('imprNombre');
+
+    for(var i = 0; i < 2; i++){
+        nombre[i].innerHTML = guardado.nombre;
+    }
+    
+    document.getElementById('imprEmail').innerHTML = guardado.email;
 
     //Trabajar con la fecha actual en los selects y en las graficas al cargar la pagina
     var fecha = new Date(); //Fecha actual
@@ -598,3 +611,32 @@ function actualizarGrafico3Doble(){
     morris3Doble.setData(nuevaData);
     
 }
+
+
+$("#consultarBalance").on("click", function(){
+    
+    var balance = gastosHTML / ingresosHTML;
+
+    balance = balance * 100;
+
+    if(balance < 50 ){
+        Swal.fire({
+            icon: 'success',
+            title: 'Enhorabuena',
+            text: 'Tu balance mínimo es más del 50%',
+        })
+    }else if(balance < 95 && balance >= 50){
+        Swal.fire({
+            icon: 'warning',
+            title: 'Cuidado',
+            text: 'Tu balance mínimo es más del 25%',
+        })
+    }else if(balance < 100 && balance >= 95){
+        Swal.fire({
+            icon: 'error',
+            title: 'Peligro',
+            text: 'Tu balance mínimo es más del 5%',
+        })
+    }
+
+});

@@ -125,8 +125,13 @@ function iniciar() {
             sel.appendChild(opt);
 
         });
-        
-        
+
+        var guardadoDatos = localStorage.getItem('datosPago');
+
+        var guardadoDatos = JSON.parse(guardadoDatos);
+
+        sel.value = guardadoDatos.pago;
+            
     }
 
     function cargarGastosLocalStorage(){

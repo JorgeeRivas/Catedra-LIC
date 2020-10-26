@@ -2,6 +2,8 @@ function iniciar() {
 
     var submit = document.getElementById('submit');
 
+    cargarSelects(); //Funcion para llenar los selects con las cuentas bancarias disponibles
+
     if(submit.addEventListener){
         submit.addEventListener("click", function(e){
             
@@ -10,9 +12,8 @@ function iniciar() {
             var pago = document.getElementById('selectpago').value;
             var ingreso = document.getElementById('ingreso').value;
             var gasto = document.getElementById('gastos').value;
-            var porcentaje  = document.getElementById('porcentaje').value;
 
-            const Pago = new Config(pago, ingreso, gasto, porcentaje);
+            const Pago = new Config(pago, ingreso, gasto);
 
             localStorage.setItem('datosPago', JSON.stringify(Pago));
 
@@ -29,7 +30,7 @@ function iniciar() {
             }
 
             if(confirmar == true){
-                const Pago = new Config(pago, ingreso, gasto, porcentaje);
+                const Pago = new Config(pago, ingreso, gasto);
 
                 localStorage.setItem('datosPago', JSON.stringify(Pago));
 
@@ -43,7 +44,6 @@ function iniciar() {
                 document.getElementById('selectpago').value = "";
                 document.getElementById('ingreso').value = "";
                 document.getElementById('gastos').value = "";
-                document.getElementById('porcentaje').value = "";
 
                 
 
@@ -68,9 +68,8 @@ function iniciar() {
             var pago = document.getElementById('selectpago').value;
             var ingreso = document.getElementById('ingreso').value;
             var gasto = document.getElementById('gastos').value;
-            var porcentaje  = document.getElementById('porcentaje').value;
 
-            const Pago = new Config(pago, ingreso, gasto, porcentaje);
+            const Pago = new Config(pago, ingreso, gasto);
 
 
             localStorage.setItem('datosPago', JSON.stringify(Pago));
@@ -79,6 +78,46 @@ function iniciar() {
 
 
         });
+    }
+
+    function cargarSelects(){
+
+        var sel = document.getElementById('selectpago');
+
+        var bancos = [],
+        dataInLocalStorage = localStorage.getItem('cuentasUsuario');
+
+        if (dataInLocalStorage !== null) {
+            bancos = JSON.parse(dataInLocalStorage);
+        }
+
+        bancos.forEach(function(x,i){
+
+            var opt = document.createElement('option');
+            opt.value = x.numCuenta;
+            opt.innerHTML = "Cuenta #" + x.numCuenta;
+            sel.appendChild(opt);
+
+        });
+
+
+        var tarjetas = [],
+        dataInLocalStorage = localStorage.getItem('tarjetasUsuario');
+
+        if (dataInLocalStorage !== null) {
+            tarjetas = JSON.parse(dataInLocalStorage);
+        }
+
+        tarjetas.forEach(function(x,i){
+
+            var opt = document.createElement('option');
+            opt.value = x.tarjeta;
+            opt.innerHTML = "Tarjeta #" + x.tarjeta;
+            sel.appendChild(opt);
+
+        });
+        
+        
     }
 
 
@@ -93,7 +132,6 @@ class Config {
         this.pago = pago;
         this.ingreso = ingreso;
         this.gasto = gasto;
-        this.porcentaje = porcentaje;
     }
     
 
